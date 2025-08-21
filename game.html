@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yoga Game - Play</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Yoga Challenge</h1>
+    <div class="game-area">
+      
+      <!-- Reference Pose -->
+      <div class="reference">
+        <h2>Reference Pose</h2>
+        <img id="poseImage" src="" alt="Pose Reference">
+      </div>
+
+      <!-- Webcam -->
+      <div class="webcam">
+        <h2>Your Camera</h2>
+        <video id="webcam" autoplay playsinline></video>
+      </div>
+    </div> 
+
+    <!-- Score Display -->
+    <div class="score-box">
+      <p>Score: <span id="score">0</span></p>
+    </div> 
+
+    <a href="poses.html" class="btn">Choose Another Pose</a>
+  </div>
+
+  <script>
+    // Get the query string parameter from poses.html
+    const params = new URLSearchParams(window.location.search);
+    const poseUrl = params.get('pose'); // The image URL passed from poses page
+
+    // Set the reference image dynamically
+    if (poseUrl) {
+      document.getElementById('poseImage').src = poseUrl;
+    } else {
+      // Default image if none selected
+      document.getElementById('poseImage').src = "https://www.yogaclassplan.com/wp-content/uploads/2021/01/34-treepose.jpg";
+    }
+  </script>
+</body>
+</html>
+
